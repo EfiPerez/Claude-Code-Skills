@@ -5,10 +5,21 @@ Practical Claude Code skills for real workflows, by Efi Perez ([@EfiPerez](https
 ## Install
 
 **Option A - plugin marketplace (recommended):**
-```
-/plugin marketplace add EfiPerez/claude-code-skills
-/plugin install done@efi-skills
-```
+
+1. Add the marketplace (once):
+   ```
+   /plugin marketplace add EfiPerez/claude-code-skills
+   ```
+   This only registers the catalog - it installs nothing by itself.
+
+2. Install only the skills you want - each line installs one skill:
+
+   | Skill | Install command |
+   |---|---|
+   | `done` | `/plugin install done@efi-skills` |
+
+   Or run `/plugin` and browse the marketplace to pick skills from a menu.
+
 One-time marketplace registration; every skill added later needs no new
 setup on your side. Third-party marketplace auto-update is **off by
 default** - run `/plugin marketplace update` to pull new versions, or turn
@@ -38,3 +49,4 @@ MIT - see [LICENSE](LICENSE).
 ## Credit
 
 Built by Efi Perez, published from personal Claude Code skills developed for real day-to-day work.
+
