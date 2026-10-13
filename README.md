@@ -12,11 +12,12 @@ Practical Claude Code skills for real workflows, by Efi Perez ([@EfiPerez](https
    ```
    This only registers the catalog - it installs nothing by itself.
 
-2. Install only the skills you want - each line installs one skill:
+2. Install only what you want - each line is one plugin:
 
-   | Skill | Install command |
-   |---|---|
-   | `done` | `/plugin install done@efi-skills` |
+   | Plugin | Skills it installs | Install command |
+   |---|---|---|
+   | `done` | `done` | `/plugin install done@efi-skills` |
+   | `session-handoff` | `handoff` + `resume-handoff` (a pair - one writes the handoff, the other reads it) | `/plugin install session-handoff@efi-skills` |
 
    Or run `/plugin` and browse the marketplace to pick skills from a menu.
 
@@ -34,13 +35,17 @@ the folder for the skill you want into `~/.claude/skills/`:
 ```
 cp -r claude-code-skills/skills/done ~/.claude/skills/
 ```
+
+`handoff` and `resume-handoff` are a pair (the `session-handoff` plugin) - copy both folders.
 </details>
 
 ## Skills in this repo
 
-| Skill | What it does |
-|---|---|
-| `done` | End-of-session wrap-up: detects what changed, updates CLAUDE.md with gotchas only (not inventories), runs the test suite, commits and pushes, and prints a short status report. |
+| Skill | Plugin | What it does |
+|---|---|---|
+| `done` | `done` | End-of-session wrap-up: detects what changed, updates CLAUDE.md with gotchas only (not inventories), runs the test suite, commits and pushes, and prints a short status report. |
+| `handoff` | `session-handoff` | Saves an unfinished session to `handoffs/YYYY-MM-DD_HH-topic.md`: goal, constraints, current state, gotchas, files to read first, and exact next steps - so a fresh session can continue without re-explaining. |
+| `resume-handoff` | `session-handoff` | Loads the newest handoff in a new session, reads the files it points at, flags anything that changed since (new commits, moved files), and starts the first next step. |
 
 ## Licence
 
