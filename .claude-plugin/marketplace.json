@@ -1,22 +1,58 @@
 {
   "name": "efi-skills",
-  "owner": { "name": "Efi Perez", "url": "https://github.com/EfiPerez" },
+  "owner": {
+    "name": "Efi Perez",
+    "url": "https://github.com/EfiPerez"
+  },
   "metadata": {
     "description": "Practical Claude Code skills for real workflows",
-    "version": "1.0.0"
+    "version": "1.1.0"
   },
   "plugins": [
     {
       "name": "done",
       "source": "./",
       "strict": false,
-      "skills": ["./skills/done"],
+      "skills": [
+        "./skills/done"
+      ],
       "description": "End-of-session wrap-up: detects what changed, updates CLAUDE.md with gotchas only, runs tests, commits and pushes, and prints a short status report.",
       "version": "1.0.0",
-      "author": { "name": "Efi Perez" },
+      "author": {
+        "name": "Efi Perez"
+      },
       "license": "MIT",
       "category": "workflow",
-      "keywords": ["session", "wrap-up", "claude-md", "git", "tests"]
+      "keywords": [
+        "session",
+        "wrap-up",
+        "claude-md",
+        "git",
+        "tests"
+      ]
+    },
+    {
+      "name": "session-handoff",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/handoff",
+        "./skills/resume-handoff"
+      ],
+      "description": "Save an unfinished session to a handoffs/ Markdown file (handoff) and pick it back up in a fresh session, with drift checks against the current code (resume-handoff).",
+      "version": "1.0.0",
+      "author": {
+        "name": "Efi Perez"
+      },
+      "license": "MIT",
+      "category": "workflow",
+      "keywords": [
+        "session",
+        "handoff",
+        "context",
+        "resume",
+        "continuity"
+      ]
     }
   ]
 }
